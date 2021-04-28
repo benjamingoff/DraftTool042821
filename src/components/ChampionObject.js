@@ -40,5 +40,24 @@ class Champion{
         return imageLinkArray
     
     }
+    async statInfo(){
+        var url = 'http://ddragon.leagueoflegends.com/cdn/11.8.1/data/en_US/champion/' + this.apiName + '.json';
+        const getObj = async () => {
+            const response = await fetch(url);
+            const json = await response.json();
+            return(json.data);
+        }
+        //Return array in this format [name, typetag, health, armor, attack damage, movespeed]
+        var jsonObj = await getObj();
+        var stats = [];
+        stats.push(this.name);
+        stats.push(jsonObj.tags[0]);
+        stats.push(jsonObj.stats.hp);
+        stats.push(jsonObj.stats.armor);
+        stats.push(jsonObj.stats.attackdamage);
+        stats.push(jsonObj.stats.movespeed);
+        return stats;
+
+    }
 }
 export default Champion;

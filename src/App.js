@@ -52,7 +52,7 @@ class App extends React.Component {
       team1: new Team([0,0,0,0,0]),
       team2: new Team([0,0,0,0,0]),
       currentChamp: new Champion('Draven','Draven'),
-      statsList: ["http://ddragon.leagueoflegends.com/cdn/11.9.1/img/passive/Draven_passive.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenSpinning.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenFury.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenDoubleShot.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenRCast.png"], 
+      statsIcons: ["http://ddragon.leagueoflegends.com/cdn/11.9.1/img/passive/Draven_passive.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenSpinning.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenFury.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenDoubleShot.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenRCast.png"], 
       team1Bans: [0,0,0,0,0],
       team2Bans: [0,0,0,0,0],
       champPool: this.champs,
@@ -77,11 +77,11 @@ class App extends React.Component {
     var newStatsList = await getLinks();
     this.setState(state => ({
       currentChamp: new Champion(e,e),
-      statsList: newStatsList
+      statsIcons: newStatsList
     }));
     //Printing out the icon clicked to the console, will be removed for the final build.
     console.log(e);
-    console.log(this.state.statsList);
+    console.log(this.state.statsIcons);
     
   }
 
@@ -261,7 +261,7 @@ class App extends React.Component {
           
           <ChampPool handler={this.handleClick} champList={this.champs}/>
           <TeamComponent team={this.state.team2} key={JSON.stringify(this.state.team2) + '4643634'} />
-          <StatsComponent abilities={this.state.statsList} key={JSON.stringify(this.state.statsList)} />
+          <StatsComponent abilities={this.state.statsIcons} key={JSON.stringify(this.state.statsIcons)} />
           
         </div>
     )};
