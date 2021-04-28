@@ -49,8 +49,10 @@ class Champion{
         }
         //Return array in this format [name, typetag, health, armor, attack damage, movespeed]
         var jsonObj = await getObj();
+        jsonObj = jsonObj[this.apiName];
         var stats = [];
         stats.push(this.name);
+        //var tagsArray = jsonObj.tags;
         stats.push(jsonObj.tags[0]);
         stats.push(jsonObj.stats.hp);
         stats.push(jsonObj.stats.armor);

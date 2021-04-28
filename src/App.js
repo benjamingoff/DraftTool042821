@@ -53,6 +53,7 @@ class App extends React.Component {
       team2: new Team([0,0,0,0,0]),
       currentChamp: new Champion('Draven','Draven'),
       statsIcons: ["http://ddragon.leagueoflegends.com/cdn/11.9.1/img/passive/Draven_passive.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenSpinning.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenFury.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenDoubleShot.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenRCast.png"], 
+      statsList: ["Draven", "Marksman", 605, 29, 60, 330],
       team1Bans: [0,0,0,0,0],
       team2Bans: [0,0,0,0,0],
       champPool: this.champs,
@@ -71,17 +72,24 @@ class App extends React.Component {
   async handleClick(e) {
     var tempChamp = new Champion(e,e);
     const getLinks = async () => {
-      const newStats = await (tempChamp.spellLinks());
-      return newStats;
+      const newLinks = await (tempChamp.spellLinks());
+      return newLinks;
     }
-    var newStatsList = await getLinks();
+    const getStats = async () => {
+      const newStats = await(tempChamp.statInfo());
+      return newStats
+    }
+    var newStatsIcons = await getLinks();
+    var newStatsList = await getStats();
     this.setState(state => ({
       currentChamp: new Champion(e,e),
-      statsIcons: newStatsList
+      statsIcons: newStatsIcons,
+      statsList: newStatsList
     }));
     //Printing out the icon clicked to the console, will be removed for the final build.
     console.log(e);
     console.log(this.state.statsIcons);
+    console.log(newStatsList);
     
   }
 
@@ -261,7 +269,7 @@ class App extends React.Component {
           
           <ChampPool handler={this.handleClick} champList={this.champs}/>
           <TeamComponent team={this.state.team2} key={JSON.stringify(this.state.team2) + '4643634'} />
-          <StatsComponent abilities={this.state.statsIcons} key={JSON.stringify(this.state.statsIcons)} />
+          <StatsComponent abilities={this.state.statsIcons} stats={this.state.statsList} key={JSON.stringify(this.state.statsIcons)} />
           
         </div>
     )};

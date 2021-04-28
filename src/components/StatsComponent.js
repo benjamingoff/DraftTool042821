@@ -26,7 +26,9 @@ class StatsComponent extends React.Component{
         super(props);
         //Takes in a list of ability names as it's only state variable.
         this.state = {
-            abilities: props.abilities
+            abilities: props.abilities,
+            //Stats are passed in this order: [name, typetag, health, armor, attack damage, movespeed]
+            stats: props.stats
         };
     }
 
@@ -45,8 +47,14 @@ class StatsComponent extends React.Component{
                     <img src={this.state.abilities[3]} style={imgStyle}></img>
                     <img src={this.state.abilities[4]} style={imgStyle}></img>
                 </div>
+                
                 <div style={textStyle}>
-                    <text></text>
+                    <p style={textStyle}>{this.state.stats[0]}</p>
+                    <p style={textStyle}>{this.state.stats[1]}</p>
+                    <p style={textStyle}>Base Health: {this.state.stats[2]}</p>
+                    <p style={textStyle}>Base Armor: {this.state.stats[3]}</p>
+                    <p style={textStyle}>Base AD: {this.state.stats[4]}</p>
+                    <p style={textStyle}>Base Movespeed: {this.state.stats[5]}</p>
                 </div>
             </div>
         );
