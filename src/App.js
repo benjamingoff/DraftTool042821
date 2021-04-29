@@ -8,6 +8,8 @@ import Team from './components/TeamObject'
 import TopBarComponent from './components/TopBarComponent'
 import Timer from './Timer'
 import StatsComponent from './components/StatsComponent'
+//import React, { useEffect, useState, useRef } from "react";
+//import Button from "./Button";
 
 
 class App extends React.Component {
@@ -92,7 +94,7 @@ class App extends React.Component {
     console.log(newStatsList);
     
   }
-
+  
   //Sleep function that sleeps the program for the number of ms it's passed, not currently used but hey it's here.
   sleep(ms){
     return new Promise(resolve => setTimeout(resolve,ms));
@@ -235,16 +237,10 @@ class App extends React.Component {
   }
 
   async champSelect(){
-    console.log("1")
     this.state.champSelectState = 0;
     if(this.state.champSelectState < 20){
-      console.log("2")
-      setInterval(this.lockIn,8000)
-      
-      console.log("3")
+      setInterval(this.lockIn,27000)
       //await new Promise(() => {setTimeout (() => {},1000)})
-      console.log("4")
-      console.log(this.state.champSelectState)
     }
   }
   
@@ -257,13 +253,14 @@ class App extends React.Component {
 */
   //<ChampionComponent champ={this.state.currentChamp} key={JSON.stringify(this.state.currentChamp)} handler={this.handleClick}/>
   //<button id="1234" onClick={e => this.handleClick(e.target.id)}>Change Champion</button>
+  //Paste me back in when we get good at React <button onClick={this.champSelect}>Begin Champ Select!</button>
   render(){
     return (
         <div>
           <TopBarComponent team1Bans={this.state.team1Bans} team2Bans={this.state.team2Bans} currentChampion={this.state.currentChamp} key={JSON.stringify(this.state.currentChamp)} ></TopBarComponent>
           <br/>
-          <button onClick={this.champSelect}>Begin Champ Select!</button>
-          <button onClick={this.lockIn}>Lock In!</button>
+          <Timer handler={this.lockIn}/>
+          
           <br></br>
           <TeamComponent team={this.state.team1} key={JSON.stringify(this.state.team1) + '523213'}/>
           
