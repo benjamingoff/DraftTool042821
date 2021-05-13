@@ -1,24 +1,43 @@
-import * as React from 'react';
-import { render } from 'react-dom';
+import React, { useEffect, useState, useRef } from "react";
+import Button from "./Button";
 
+function useInterval(callback, delay) {
+  const savedCallback = useRef();
 
+  // Remember the latest callback.
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
 
-function Timer() {
-  const [counter, setCount] = React.useState(27);
+  // Set up the interval.
+  useEffect(() => {
+    function tick() {
+      savedCallback.current();
+    }
+    if (delay !== null) {
+      let id = setInterval(tick, delay);
+      return () => clearInterval(id);
+    }
+  }, [delay]);
+}
 
+const Timer = (props) => {
+  const [counter, setCount] = useState(27);
 
-  React.useEffect(() => {
-    counter > 0 && setTimeout(() => setCount(prevCount => prevCount - 1), 1000);
-  }, [counter]);
+  const handleLockIn = () => {
+    setCount(27);
+    props.handler();
+  };
+
+  useInterval(() => {
+    setCount((prevCount) => (prevCount > 0 ? prevCount - 1 : setCount));
+  }, 1000);
 
   return (
     <div className="Timer">
-      Pick: {counter}
+       Pick: {counter}
+      <Button handleLockIn={handleLockIn} />
     </div>
   );
-}
-
-//const rootElement = document.getElementById('root');
-//render(<Timer />, rootElement);
-
+};
 export default Timer;

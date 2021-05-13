@@ -21,12 +21,12 @@ class App extends React.Component {
     ["Ashe","Ashe"],["AurelionSol","Aurelion Sol"],["Azir","Azir"],["Bard","Bard"],["Blitzcrank","Blitzcrank"],["Brand","Brand"],
     ["Braum","Braum"],["Caitlyn","Caitlyn"],["Camille","Camille"],["Cassiopeia","Cassiopeia"],["Chogath","Cho'gath"],["Corki","Corki"],["Darius","Darius"],["Diana","Diana"],
     ["Draven","Draven"],["DrMundo","Dr. Mundo"],["Ekko","Ekko"],["Elise","Elise"],["Evelynn","Evelynn"],["Ezreal","Ezreal"],["Fiddlesticks","Fiddlesticks"],["Fiora","Fiora"],
-    ["Fizz","Fizz"],["Galio","Galio"],["Gangplank","Gangplank"],["Garen","Garen"],["Gnar","Gnar"],["Gragas","Gragas"],["Graves","Graves"],["Hecarim","Hecarim"],["Heimerdinger","Heimerdinger"],
+    ["Fizz","Fizz"],["Galio","Galio"],["Gangplank","Gangplank"],["Garen","Garen"],["Gnar","Gnar"],["Gragas","Gragas"],["Graves","Graves"],["Gwen","Gwen"],["Hecarim","Hecarim"],["Heimerdinger","Heimerdinger"],
     ["Illaoi","Illaoi"],["Irelia","Irelia"],["Ivern","Ivern"],["Janna","Janna"],["JarvanIV","Jarvan IV"],["Jax","Jax"],["Jayce","Jayce"],["Jhin","Jhin"],["Jinx","Jinx"],
     ["Kaisa","Kai'Sa"],["Kalista","Kalista"],["Karma","Karma"],["Karthus","Karthus"],["Kassadin","Kassadin"],["Katarina","Katarina"],["Kayle","Kayle"],["Kayn","Kayn"],
     ["Kennen","Kennen"],["Khazix","Kha'Zix"],["Kindred","Kindred"],["Kled","Kled"],["KogMaw","Kog'Maw"],["Leblanc","Leblanc"],["LeeSin","Lee Sin"],["Leona","Leona"],
     ["Lillia","Lillia"],["Lissandra","Lissandra"],["Lucian","Lucian"],["Lulu","Lulu"],["Lux","Lux"],["Malphite","Malphite"],["Malzahar","Malzahar"],["Maokai","Maokai"],
-    ["MasterYi","Master Yi"],["MissFortune","Miss Fortune"],["MonkeyKing","Wukong"],["Mordekaiser","Mordekaiser"],["Morgana","Morgana"],["Nami","Nami"],["Nasus","Nasus"],
+    ["MasterYi","Master Yi"],["MissFortune","Miss Fortune"],["Mordekaiser","Mordekaiser"],["Morgana","Morgana"],["Nami","Nami"],["Nasus","Nasus"],
     ["Nautilus","Nautilus"],["Neeko","Neeko"],["Nidalee","Nidalee"],["Nocturne","Nocturne"],["Nunu","Nunu & Willump"],["Olaf","Olaf"],["Orianna","Orianna"],["Ornn","Ornn"],
     ["Pantheon","Pantheon"],["Poppy","Poppy"],["Pyke","Pyke"],["Qiyana","Qiyana"],["Quinn","Quinn"],["Rakan","Rakan"],["Rammus","Rammus"],["RekSai","Rek'Sai"],["Rell","Rell"],
     ["Renekton","Renekton"],["Rengar","Rengar"],["Riven","Riven"],["Rumble","Rumble"],["Ryze","Ryze"],["Samira","Samira"],["Sejuani","Sejuani"],["Senna","Senna"],
@@ -34,7 +34,7 @@ class App extends React.Component {
     ["Sona","Sona"],["Soraka","Soraka"],["Swain","Swain"],["Sylas","Sylas"],["Syndra","Syndra"],["TahmKench","Tahm Kench"],["Taliyah","Taliyah"],["Talon","Talon"],["Taric","Taric"],
     ["Teemo","Teemo"],["Thresh","Thresh"],["Tristana","Tristana"],["Trundle","Trundle"],["Tryndamere","Tryndamere"],["TwistedFate","Twisted Fate"],["Twitch","Twitch"],
     ["Udyr","Udyr"],["Urgot","Urgot"],["Varus","Varus"],["Vayne","Vayne"],["Veigar","Veigar"],["Velkoz","Vel'Koz"],["Vi","Vi"],["Viego","Viego"],["Viktor","Viktor"],
-    ["Vladimir","Vladimir"],["Volibear","Volibear"],["Warwick","Warwick"],["Xayah","Xayah"],["Xerath","Xerath"],["XinZhao","Xin Zhao"],["Yasuo","Yasuo"],["Yone","Yone"],
+    ["Vladimir","Vladimir"],["Volibear","Volibear"],["Warwick","Warwick"],["MonkeyKing","Wukong"],["Xayah","Xayah"],["Xerath","Xerath"],["XinZhao","Xin Zhao"],["Yasuo","Yasuo"],["Yone","Yone"],
     ["Yorick","Yorick"],["Yuumi","Yuumi"],["Zac","Zac"],["Zed","Zed"],["Ziggs","Ziggs"],["Zilean","Zilean"],["Zoe","Zoe"],["Zyra","Zyra"]];
 
     //Initializing an array here to populate the ChampPool component with 
@@ -55,7 +55,12 @@ class App extends React.Component {
       team2: new Team([0,0,0,0,0]),
       currentChamp: new Champion('Draven','Draven'),
       statsIcons: ["http://ddragon.leagueoflegends.com/cdn/11.9.1/img/passive/Draven_passive.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenSpinning.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenFury.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenDoubleShot.png", "http://ddragon.leagueoflegends.com/cdn/11.9.1/img/spell/DravenRCast.png"], 
-      statsList: ["Draven", "Marksman", 605, 29, 60, 330],
+      statsList: ["Draven","the Glorious Executioner", "Marksman", 605, 29, 60, 330],
+      statsInfo: [["League of Draven","Draven gains his fans' Adoration when he catches a Spinning Axe or kills a minion, monster, or tower. Killing enemy champions grants Draven bonus gold based on how much Adoration he has."],
+                 ["Spinning Axe","Draven's next attack will deal bonus physical damage. This axe will ricochet off the target high up into the air. If Draven catches it, he automatically readies another Spinning Axe. Draven can have two Spinning Axes at once."],
+                 ["Blood Rush","Draven gains increased Movement Speed and Attack Speed. The Movement Speed bonus decreases rapidly over its duration. Catching a Spinning Axe will refresh the cooldown of Blood Rush."],
+                 ["Stand Aside","Draven throws his axes, dealing physical damage to targets hit and knocking them aside. Targets hit are slowed."],
+                 ["Whirling Death","Draven hurls two massive axes to deal physical damage to each unit struck. Whirling Death slowly reverses direction and returns to Draven after striking an enemy champion. Draven may also activate this ability while the axes are in flight to cause it to return early. Deals less damage for each unit hit and resets when the axes reverse direction."]],
       team1Bans: [0,0,0,0,0],
       team2Bans: [0,0,0,0,0],
       champPool: this.champs,
@@ -86,12 +91,14 @@ class App extends React.Component {
     this.setState(state => ({
       currentChamp: new Champion(e,e),
       statsIcons: newStatsIcons,
-      statsList: newStatsList
+      statsList: newStatsList,
+      statsInfo: newStatsList.slice(7)
     }));
     //Printing out the icon clicked to the console, will be removed for the final build.
     console.log(e);
     console.log(this.state.statsIcons);
     console.log(newStatsList);
+    console.log(this.state.statsInfo);
     
   }
   
@@ -266,7 +273,7 @@ class App extends React.Component {
           
           <ChampPool handler={this.handleClick} champList={this.champs}/>
           <TeamComponent team={this.state.team2} key={JSON.stringify(this.state.team2) + '4643634'} />
-          <StatsComponent abilities={this.state.statsIcons} stats={this.state.statsList} key={JSON.stringify(this.state.statsIcons)} />
+          <StatsComponent abilities={this.state.statsIcons} abilityInfo={this.state.statsInfo} stats={this.state.statsList} icon={this.state.currentChamp} key={JSON.stringify(this.state.statsIcons)} />
           
         </div>
     )};
